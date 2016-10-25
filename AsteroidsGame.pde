@@ -1,53 +1,60 @@
-SpaceShip Bob;
+SpaceShip bob;
+Star[] stars;
 
 public void setup() 
 {
   size(500,500);
-  Bob = new SpaceShip();
+  bob = new SpaceShip();
+  stars = new Star[300];
+  for (int i = 0; i < stars.length; i++){
+    stars[i] = new Star();
+  }
 }
 public void draw() 
 {
   background(0);
-  Bob.show();
-  Bob.move();
-
+  for (int i = 0; i < stars.length; i++){
+    stars[i].show();
+  }
+  bob.show();
+  bob.move();
 }
 public void keyPressed(){
  if (key == CODED){
-  if (keyCode == UP)
+ if (keyCode == UP)
   {
-    Bob.setDirectionY(-1);
+    bob.setDirectionY(-1);
   }
   if (keyCode == DOWN)
   {
-    Bob.setDirectionY(1);
+    bob.setDirectionY(1);
   }
   if (keyCode == RIGHT)
   {
-    Bob.setDirectionX(1);
+    bob.setDirectionX(1);
   }
   if (keyCode == LEFT)
   {
-    Bob.setDirectionX(-1);
+    bob.setDirectionX(-1);
   }
 
  } 
  if (key == 'f')
   {
-    Bob.setX((int)(Math.random()*500));
-    Bob.setY((int)(Math.random()*500));
+    bob.setX((int)(Math.random()*500));
+    bob.setY((int)(Math.random()*500));
   }
   if (key == 'a')
   {
-    Bob.accelerate(2);
+    bob.accelerate(2);
   }
   if (key == 's')
   {
-    Bob.rotate(-10);
+    bob.rotate(-10);
   }
   if (key == 'd')
   {
-    Bob.rotate(10);
+    bob.rotate(10);
   }
 }
 class SpaceShip extends Floater  
@@ -90,6 +97,21 @@ class SpaceShip extends Floater
     public double getDirectionY(){return myDirectionY;}   
     public void setPointDirection(int degrees){myPointDirection = degrees;}   
     public double getPointDirection(){return myPointDirection;} 
+}
+class Star
+{
+  private int myX, myY,myColor, mySize;
+  Star(){
+    myX = (int)(Math.random()*500);
+    myY = (int)(Math.random()*500);
+    myColor = (int)(Math.random()*200)+55;
+    mySize = (int)(Math.random()*2)+1;
+  } 
+  public void show(){
+    noStroke();
+    fill(myColor);
+    ellipse(myX,myY,mySize,mySize);
+  }
 }
 abstract class Floater //Do NOT modify the Floater class! Make changes in the SpaceShip class 
 {   
