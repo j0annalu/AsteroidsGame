@@ -46,7 +46,8 @@ public void keyPressed(){
   }
   if (key == 'a')
   {
-    bob.accelerate(2);
+    bob.accelerate(1);
+
   }
   if (key == 's')
   {
