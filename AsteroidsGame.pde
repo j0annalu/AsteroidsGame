@@ -15,6 +15,7 @@ public void draw()
   background(0);
   for (int i = 0; i < stars.length; i++){
     stars[i].show();
+    stars[i].move();
   }
   bob.show();
   bob.move();
@@ -112,6 +113,10 @@ class Star
     noStroke();
     fill(myColor);
     ellipse(myX,myY,mySize,mySize);
+  }
+  public void move(){
+    myX = myX + 1;
+    myY = myY + 1;
   }
 }
 abstract class Floater //Do NOT modify the Floater class! Make changes in the SpaceShip class 
