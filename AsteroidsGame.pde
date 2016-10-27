@@ -44,6 +44,7 @@ public void keyPressed(){
   {
     bob.setX((int)(Math.random()*500));
     bob.setY((int)(Math.random()*500));
+    bob.setPointDirection((int)(Math.random()*360));
   }
   if (key == 'a')
   {
