@@ -117,6 +117,14 @@ class Star
   public void move(){
     myX = myX + 1;
     myY = myY + 1;
+    if (myX > 500){
+      myX = 0;
+      myY = (int)(Math.random()*500);
+    }
+    if (myY > 500){
+      myY = 0;
+      myX = (int)(Math.random()*500);
+    }
   }
 }
 abstract class Floater //Do NOT modify the Floater class! Make changes in the SpaceShip class 
