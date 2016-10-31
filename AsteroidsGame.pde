@@ -22,7 +22,7 @@ public void draw()
 }
 public void keyPressed(){
  if (key == CODED){
- if (keyCode == UP)
+  if (keyCode == UP)
   {
     bob.setDirectionY(-1);
   }
@@ -64,7 +64,7 @@ public void keyPressed(){
 }
 class SpaceShip extends Floater  
 {   
-  SpaceShip()
+  public SpaceShip()
   {
       corners = 8;
       xCorners = new int [corners];
@@ -102,6 +102,37 @@ class SpaceShip extends Floater
     public double getDirectionY(){return myDirectionY;}   
     public void setPointDirection(int degrees){myPointDirection = degrees;}   
     public double getPointDirection(){return myPointDirection;} 
+}
+class Asteroid extends Floater{
+  private int rotateSpeed;
+  public Asteroid(){
+    rotateSpeed = (int)(Math.random()*3)-1;
+    myColor = color(100,100,100);
+    myCenterX = Math.random()*500;
+    myCenterY = Math.random()*500;
+    myDirectionX = Math.random()*3-1;
+    myDirectionY = Math.random()*3-1;
+    myPointDirection = Math.random()*360;
+    corners = 5;
+    xCorners = new int [corners];
+    yCorners = new int [corners];
+  }
+    public void setX(int x){myCenterX = x;}
+    public int getX(){return (int)myCenterX;}   
+    public void setY(int y){myCenterY = y;}   
+    public int getY(){return (int)myCenterY;}   
+    public void setDirectionX(double x){myDirectionX = x;}   
+    public double getDirectionX(){return myDirectionX;}   
+    public void setDirectionY(double y){myDirectionY = y;}   
+    public double getDirectionY(){return myDirectionY;}   
+    public void setPointDirection(int degrees){myPointDirection = degrees;}   
+    public double getPointDirection(){return myPointDirection;} 
+  public void show(){
+    fill(myColor);
+  }
+  public void move(){
+    rotate(rotateSpeed);
+  }
 }
 class Star
 {
