@@ -1,10 +1,15 @@
 SpaceShip bob;
+Asteroid[] ashley;
 Star[] stars;
 
 public void setup() 
 {
   size(500,500);
   bob = new SpaceShip();
+  ashley = new Asteroid[50];
+  for (int i; i < ashley.length; i++){
+    ashley[i] = new Asteroid();
+  }
   stars = new Star[300];
   for (int i = 0; i < stars.length; i++){
     stars[i] = new Star();
@@ -16,6 +21,10 @@ public void draw()
   for (int i = 0; i < stars.length; i++){
     stars[i].show();
     stars[i].move();
+  }
+  for (int i = 0; i < ashley.length; i++){
+    ashley[i].show();
+    ashley[i].move();
   }
   bob.show();
   bob.move();
@@ -106,16 +115,28 @@ class SpaceShip extends Floater
 class Asteroid extends Floater{
   private int rotateSpeed;
   public Asteroid(){
-    rotateSpeed = (int)(Math.random()*3)-1;
-    myColor = color(100,100,100);
+    rotateSpeed = (int)(Math.random()*5)-2;
+    myColor = color(150);
     myCenterX = Math.random()*500;
     myCenterY = Math.random()*500;
     myDirectionX = Math.random()*3-1;
     myDirectionY = Math.random()*3-1;
     myPointDirection = Math.random()*360;
-    corners = 5;
+    corners = 6;
     xCorners = new int [corners];
     yCorners = new int [corners];
+    xCorners[0] = 15;
+    yCorners[0] = 0;
+    xCorners[1] = 9; 
+    yCorners[1] = 12;
+    xCorners[2] = -9;
+    yCorners[2] = 12;
+    xCorners[3] = -15;
+    yCorners[3] = 0;
+    xCorners[4] = -12;
+    yCorners[4] = -9;
+    xCorners[5] = 12;
+    yCorners[5] = -9; 
   }
     public void setX(int x){myCenterX = x;}
     public int getX(){return (int)myCenterX;}   
@@ -127,11 +148,9 @@ class Asteroid extends Floater{
     public double getDirectionY(){return myDirectionY;}   
     public void setPointDirection(int degrees){myPointDirection = degrees;}   
     public double getPointDirection(){return myPointDirection;} 
-  public void show(){
-    fill(myColor);
-  }
   public void move(){
     rotate(rotateSpeed);
+    super.move();
   }
 }
 class Star
