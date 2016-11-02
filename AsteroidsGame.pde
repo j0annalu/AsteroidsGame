@@ -6,8 +6,8 @@ public void setup()
 {
   size(500,500);
   bob = new SpaceShip();
-  ashley = new Asteroid[50];
-  for (int i; i < ashley.length; i++){
+  ashley = new Asteroid[25];
+  for (int i = 0; i < ashley.length; i++){
     ashley[i] = new Asteroid();
   }
   stars = new Star[300];
@@ -115,7 +115,7 @@ class SpaceShip extends Floater
 class Asteroid extends Floater{
   private int rotateSpeed;
   public Asteroid(){
-    rotateSpeed = (int)(Math.random()*5)-2;
+    rotateSpeed = (int)(Math.random()*3)-1;
     myColor = color(150);
     myCenterX = Math.random()*500;
     myCenterY = Math.random()*500;
