@@ -33,12 +33,12 @@ public void keyPressed(){
  if (key == CODED){
   if (keyCode == UP)
   {
-    bob.accelerate(1);
+    bob.accelerate(.25);
   }
 
   if (keyCode == DOWN)
   {
-    bob.accelerate(-1);
+    bob.accelerate(-.25);
   }
   if (keyCode == RIGHT)
   {
