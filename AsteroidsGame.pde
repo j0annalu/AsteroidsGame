@@ -33,19 +33,20 @@ public void keyPressed(){
  if (key == CODED){
   if (keyCode == UP)
   {
-    bob.setDirectionY(-1);
+    bob.accelerate(1);
   }
+
   if (keyCode == DOWN)
   {
-    bob.setDirectionY(1);
+    bob.accelerate(-1);
   }
   if (keyCode == RIGHT)
   {
-    bob.setDirectionX(1);
+    bob.rotate(10);
   }
   if (keyCode == LEFT)
   {
-    bob.setDirectionX(-1);
+    bob.rotate(-10);
   }
 
  } 
@@ -57,19 +58,9 @@ public void keyPressed(){
     bob.setDirectionX(0);
     bob.setDirectionY(0);
   }
-  if (key == 'a')
-  {
-    bob.accelerate(1);
-
-  }
-  if (key == 's')
-  {
-    bob.rotate(-10);
-  }
-  if (key == 'd')
-  {
-    bob.rotate(10);
-  }
+    
+  
+ 
 }
 class SpaceShip extends Floater  
 {   
