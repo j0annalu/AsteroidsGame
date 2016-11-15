@@ -25,9 +25,13 @@ public void draw()
   for (int i = 0; i < theList.size(); i++){
     theList.get(i).show();
     theList.get(i).move();
+    if (dist(bob.getX(), bob.getY(), theList.get(i).getX(), theList.get(i).getY()) <= 20){
+    theList.remove(i);
+  }
   }
   bob.show();
   bob.move();
+  
 }
 public void keyPressed(){
  if (key == CODED){
