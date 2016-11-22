@@ -5,7 +5,7 @@ public void setup()
 {
   size(500,500);
   theList = new ArrayList <Asteroid>();
-  for (int i = 0; i < 100; i++){
+  for (int i = 0; i < 20; i++){
     theList.add(new Asteroid());
   }
   bob = new SpaceShip();
