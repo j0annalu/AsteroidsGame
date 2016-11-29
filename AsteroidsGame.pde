@@ -1,6 +1,7 @@
 SpaceShip bob;
 Star[] stars;
 ArrayList <Asteroid> theList;
+Bullet b;
 public void setup() 
 {
   size(500,500);
@@ -9,6 +10,7 @@ public void setup()
     theList.add(new Asteroid());
   }
   bob = new SpaceShip();
+  b = new Bullet();
   stars = new Star[300];
   for (int i = 0; i < stars.length; i++){
     stars[i] = new Star(); 
@@ -25,13 +27,14 @@ public void draw()
   for (int i = 0; i < theList.size(); i++){
     theList.get(i).show();
     theList.get(i).move();
-    if (dist(bob.getX(), bob.getY(), theList.get(i).getX(), theList.get(i).getY()) <= 20){
+    if (dist(bob.getX(), bob.getY(), theList.get(i).getX(), theList.get(i).getY()) <= 25){
     theList.remove(i);
   }
   }
   bob.show();
   bob.move();
-  
+  b.show();
+  b.move();
 }
 public void keyPressed(){
  if (key == CODED){
