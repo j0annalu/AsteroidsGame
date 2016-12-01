@@ -15,6 +15,11 @@ public void setup()
   for (int i = 0; i < stars.length; i++){
     stars[i] = new Star(); 
   }
+    if (mouseX >= 450 && mouseX <= 500 && mouseY >= 450 && mouseY <= 500 && mousePressed ==true){
+      for (int i = 0; i < 20; i++){
+      theList.add(new Asteroid());
+    }
+  } 
 }
 
 public void draw() 
@@ -37,7 +42,15 @@ public void draw()
 }
   bob.show();
   bob.move();
- 
+  for (int i = 0; i < theList.size(); i++){
+    for (int j = 0; j < b.size(); j++){
+    if (dist(b.get(j).getX(), b.get(j).getY(), theList.get(i).getX(), theList.get(i).getY()) <= 25){
+    theList.remove(i);
+    b.remove(j);
+    break;
+    }
+  }
+ }
 }
 public void keyPressed(){
  if (key == CODED){
@@ -71,4 +84,4 @@ public void keyPressed(){
   {
     b.add(new Bullet());
   }
-}
+
