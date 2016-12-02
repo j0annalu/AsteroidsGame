@@ -15,11 +15,6 @@ public void setup()
   for (int i = 0; i < stars.length; i++){
     stars[i] = new Star(); 
   }
-    if (mouseX >= 450 && mouseX <= 500 && mouseY >= 450 && mouseY <= 500 && mousePressed ==true){
-      for (int i = 0; i < 20; i++){
-      theList.add(new Asteroid());
-    }
-  } 
 }
 
 public void draw() 
@@ -35,7 +30,7 @@ public void draw()
     if (dist(bob.getX(), bob.getY(), theList.get(i).getX(), theList.get(i).getY()) <= 25){
     theList.remove(i);
   }
-  }
+}
   for (int i = 0; i < b.size(); i++){
   b.get(i).show();
   b.get(i).move();
@@ -84,4 +79,4 @@ public void keyPressed(){
   {
     b.add(new Bullet());
   }
-
+}
