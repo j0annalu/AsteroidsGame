@@ -34,16 +34,20 @@ public void draw()
   for (int i = 0; i < b.size(); i++){
   b.get(i).show();
   b.get(i).move();
+  if (b.get(i).getX() > 500 || b.get(i).getX() < 0 || b.get(i).getY() > 500 || b.get(i).getY() < 0){
+    b.remove(i);
+    }
 }
   bob.show();
   bob.move();
   for (int i = 0; i < theList.size(); i++){
     for (int j = 0; j < b.size(); j++){
-    if (dist(b.get(j).getX(), b.get(j).getY(), theList.get(i).getX(), theList.get(i).getY()) <= 25){
-    theList.remove(i);
-    b.remove(j);
-    break;
-    }
+        if (dist(b.get(j).getX(), b.get(j).getY(), theList.get(i).getX(), theList.get(i).getY()) <= 25){
+        theList.remove(i);
+        b.remove(j);
+        break;
+      }
+
   }
  }
 }
